@@ -90,12 +90,11 @@ vault write database/config/my-redis-database \
   plugin_name="redis-database-plugin" \
   host="localhost" \
   port=6379 \
-  tls=false #true \
-  # ca_cert="$CACERT"
-  username="default" \
-  password="eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81" #\
-  #allowed_roles="my-*-role"
-
+  tls=true \
+  ca_cert="$CACERT"
+  username="user" \
+  password="pass" \
+  allowed_roles="my-*-role"
 
 # configure Vault's connection to our db, in this case PostgreSQL
 # ref: https://www.vaultproject.io/api/secret/databases/postgresql
