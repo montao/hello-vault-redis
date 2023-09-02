@@ -86,6 +86,17 @@ vault kv put "${API_KEY_PATH}" "${API_KEY_FIELD}=my-secret-key"
 # ref: https://www.vaultproject.io/docs/secrets/databases
 vault secrets enable database
 
+vault write database/config/my-redis-database \
+  plugin_name="redis-database-plugin" \
+  host="localhost" \
+  port=6379 \
+  tls=false #true \
+  # ca_cert="$CACERT"
+  username="default" \
+  password="eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81" #\
+  #allowed_roles="my-*-role"
+
+
 # configure Vault's connection to our db, in this case PostgreSQL
 # ref: https://www.vaultproject.io/api/secret/databases/postgresql
 vault write database/config/my-postgresql-database \
